@@ -2,18 +2,10 @@ local CraftingMaterialLevelDisplay = {
     name = "CraftingMaterialLevelDisplay"
 }
 
-local function GetProvisioningMaterialTooltipMessageForItem(name)
-    if ProvisioningMaterials[name].tier ~= nil then
-        return "Tier "..ProvisioningMaterials[name].tier
-    else
-        return "Skill Level "..ProvisioningMaterials[name].skillLevel
-    end
-end
-
 local function AddTooltipLineForProvisioningMaterial(control, name)
     if ProvisioningMaterials[name] then
         control:AddVerticalPadding(20)
-        control:AddLine(GetProvisioningMaterialTooltipMessageForItem(name), "ZoFontGame", 1, 1, 1, CENTER,
+        control:AddLine(ProvisioningMaterials[name].tooltip, "ZoFontGame", 1, 1, 1, CENTER,
             MODIFY_TEXT_TYPE_NONE, LEFT, false)
     end
 end
