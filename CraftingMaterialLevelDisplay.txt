@@ -2,4 +2,5 @@
 ## APIVersion: 100003
 
 ProvisioningMaterials.lua
+WoodworkingMaterials.lua
 CraftingMaterialLevelDisplay.lua
