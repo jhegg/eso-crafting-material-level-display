@@ -30,6 +30,17 @@ local function AddTooltipLineForWoodworkingMaterial(control, itemId)
     end
 end
 
+local function AddTooltipLineForBlacksmithingMaterial(control, itemId)
+    if BlacksmithingMaterials[itemId] then
+        -- Ignore the Temper items until I have information worth displaying
+        if BlacksmithingMaterials[itemId].temper ~= nil then return end
+
+        AddTooltipLine(control, BlacksmithingMaterials[itemId].tooltip)
+    else
+        OutputErrorForMissingItemId(itemId)
+    end
+end
+
 local function GetItemIdFromBagAndSlot(bagId, slotIndex)
     local itemLink = GetItemLink(bagId, slotIndex)
     local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
@@ -49,6 +60,8 @@ local function onLoad(event, name)
             AddTooltipLineForProvisioningMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
             AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+        elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
+            AddTooltipLineForBlacksmithingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         end
     end
 end

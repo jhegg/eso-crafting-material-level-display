@@ -3,4 +3,5 @@
 
 ProvisioningMaterials.lua
 WoodworkingMaterials.lua
+BlacksmithingMaterials.lua
 CraftingMaterialLevelDisplay.lua
