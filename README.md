@@ -3,11 +3,40 @@ eso-crafting-material-level-display
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
 
-At this time, it is only setup to display the crafting skill levels for provisioning ingredients. It does so based on string comparisons of the lower-case item name, matched against data retrieved from http://tamrieljournal.com/eso-provisioning-ingredients/ . Note that this unfortunately means that currently it only works for English game clients.
+## Disclaimer
 
-This addon is not intended to replace things that provide recipe information, such as [Sous Chef](http://www.esoui.com/downloads/info163-SousChef.html), which I personally use and find to be very valuable when working on Provisioning. Instead, the primary use case for this addon is to identify those materials in your bag and bank that are below your skill level, which you might want to either get rid of or put onto a bank alt.
+This is my first use of Lua, and my first creation of an addon. I suck at it. I had to look through several other much better addons for examples of how to perform certain things, such as hooking functions, or what kind of API functions might have the right kind of data I was looking for. I mention those other addons below, and I recommend that you check them out.
 
-In the screenshot below, the text "Skill Level 30" was added by this addon.
+## What is the purpose of this addon?
 
-![craftingmaterialleveldisplay](https://cloud.githubusercontent.com/assets/3254856/2924800/6bf57890-d73d-11e3-80af-4156e670f6af.jpg)
+It might be best to start with describing what this addon is not meant to do: I don't intend it to replace either [Sous Chef](http://www.esoui.com/downloads/info163-SousChef-ProvisioningHelper.html) or [Harven's Provisioning Tooltips](http://www.esoui.com/downloads/info435-HarvensProvisioningTooltips.html). Those are two great addons that inform you about which ingredients are used by which recipes, which recipes you have on various characters, etc.
 
+Instead, I created this addon to ease the identification of crafting materials that are no longer worthwhile for skill increases. So, really, I just want the game to tell me what skill level the various crafting materials are at. For example, once you get to Provisioning level 20, the ingredients below level 15 provide very little gains. Since bag and bank space are at a premium, I wanted an easier way to identify those crafting materials for either destruction, selling to a vendor, or passing to an alt or even a friend. The information is readily available at the [Tamriel Journal website](http://tamrieljournal.com/eso-provisioning-ingredients/), but having it integrated into the tooltips feels easier.
+
+At this time, the addon is limited to provisioning ingredients, although my plan is to add in the other crafting materials (particularly enchanting) in updated versions. Also, the addon is unfortunately only functional for English game clients at this time, due to the ingredient name matching algorithm that I chose to use, based off [Harven's Provisioning Tooltips](http://www.esoui.com/downloads/info435-HarvensProvisioningTooltips.html) excellent example. An alternative solution might be to instead compare by item ID; I might try that in a future version.
+
+## Screenshots
+
+### Primary Ingredients
+
+This screenshot shows a primary ingredient, and also the addon working in conjunction with [Harven's Provisioning Tooltips](http://www.esoui.com/downloads/info435-HarvensProvisioningTooltips.html), which is a good addon to identify which recipes the ingredient is used with. The text that is added says "**Primary Ingredient, Level 20, Ebonheart Pact**".
+
+![Primary Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-primary-v0.2.jpg)
+
+### Secondary Ingredients
+
+The added text for this screenshot is "**Secondary Ingredient, Level 20-25, Increase Stamina Recovery**".
+
+![Secondary Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-secondary-v0.2.jpg)
+
+### Tier 2 Ingredients
+
+The added text for this screenshot is "**Tier 2 Ingredient, Increase Health Recovery**".
+
+![Tier 2 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-tier2-v0.2.jpg)
+
+### Tier 3 Ingredients
+
+The added text for this screenshot is "**Tier 3 Ingredient**".
+
+![Tier 3 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-tier3-v0.2.jpg)
