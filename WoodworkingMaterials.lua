@@ -25,4 +25,9 @@ WoodworkingMaterials = {
 
     [23138] = {tooltip = "Level VR9 - VR10"}, -- rough nightwood
     [46142] = {tooltip = "Level VR9 - VR10"}, -- sanded nightwood
+
+    [54178] = {resin = true}, -- pitch
+    [54179] = {resin = true}, -- turpen
+    [54180] = {resin = true}, -- mastic
+    [54181] = {resin = true}, -- rosin
 }
