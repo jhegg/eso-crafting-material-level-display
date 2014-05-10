@@ -41,6 +41,17 @@ local function AddTooltipLineForBlacksmithingMaterial(control, itemId)
     end
 end
 
+local function AddTooltipLineForClothingMaterial(control, itemId)
+    if ClothingMaterials[itemId] then
+        -- Ignore the Tannin items until I have information worth displaying
+        if ClothingMaterials[itemId].tannin ~= nil then return end
+
+        AddTooltipLine(control, ClothingMaterials[itemId].tooltip)
+    else
+        OutputErrorForMissingItemId(itemId)
+    end
+end
+
 local function GetItemIdFromBagAndSlot(bagId, slotIndex)
     local itemLink = GetItemLink(bagId, slotIndex)
     local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
@@ -62,6 +73,8 @@ local function onLoad(event, name)
             AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
             AddTooltipLineForBlacksmithingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+        elseif tradeSkillType == CRAFTING_TYPE_CLOTHIER then
+            AddTooltipLineForClothingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         end
     end
 end

@@ -1,7 +1,8 @@
 ## Title: Crafting Material Level Display
 ## APIVersion: 100003
 
+ClothingMaterials.lua
+BlacksmithingMaterials.lua
 ProvisioningMaterials.lua
 WoodworkingMaterials.lua
-BlacksmithingMaterials.lua
 CraftingMaterialLevelDisplay.lua
