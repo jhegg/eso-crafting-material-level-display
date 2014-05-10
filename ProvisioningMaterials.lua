@@ -11,7 +11,7 @@ ProvisioningMaterials = {
     ["iron peat"] = {tooltip = "Primary Ingredient, Level 5, Daggerfall Covenant"},
     ["battaglir weeds"] = {tooltip = "Primary Ingredient, Level 5, Daggerfall Covenant"},
     ["dusk beetle"] = {tooltip = "Primary Ingredient, Level 5, Aldmeri Dominion"},
-    ["guar egg"] = {tooltip = "Primary Ingredient, Level 5, Aldmeri Dominion"},
+    ["guar eggs"] = {tooltip = "Primary Ingredient, Level 5, Aldmeri Dominion"},
     ["snake venom"] = {tooltip = "Primary Ingredient, Level 5, Ebonheart Pact"},
     ["kwama egg"] = {tooltip = "Primary Ingredient, Level 5, Ebonheart Pact"},
     ["tangerine"] = {tooltip = "Primary Ingredient, Level 10, Daggerfall Covenant"},
