@@ -2,10 +2,10 @@ local CraftingMaterialLevelDisplay = {
     name = "CraftingMaterialLevelDisplay"
 }
 
-local function AddTooltipLineForProvisioningMaterial(control, name)
-    if ProvisioningMaterials[name] then
+local function AddTooltipLineForProvisioningMaterial(control, itemId)
+    if ProvisioningMaterials[itemId] then
         control:AddVerticalPadding(20)
-        control:AddLine(ProvisioningMaterials[name].tooltip, "ZoFontGame", 1, 1, 1, CENTER,
+        control:AddLine(ProvisioningMaterials[itemId].tooltip, "ZoFontGame", 1, 1, 1, CENTER,
             MODIFY_TEXT_TYPE_NONE, LEFT, false)
     end
 end
@@ -20,8 +20,9 @@ local function onLoad(event, name)
         local tradeSkillType = GetItemCraftingInfo(bagId, slotIndex)
         InvokeSetBagItemTooltip(control, bagId, slotIndex, ...)
         if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
-            local name = zo_strformat("<<1>>", GetItemName(bagId, slotIndex))
-            AddTooltipLineForProvisioningMaterial(control, name)
+            local itemLink = GetItemLink(bagId, slotIndex)
+            local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
+            AddTooltipLineForProvisioningMaterial(control, tonumber(itemId))
         end
     end
 end
