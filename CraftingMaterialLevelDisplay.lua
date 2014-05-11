@@ -1,6 +1,9 @@
 local CraftingMaterialLevelDisplay = {
     name = "CraftingMaterialLevelDisplay",
-    enableProvisioning = true
+    savedVariables,
+    defaultSavedVariables = {
+        provisioning = true,
+    },
 }
 
 local function AddTooltipLine(control, tooltipLine)
@@ -70,43 +73,37 @@ local function GetItemIdFromBagAndSlot(bagId, slotIndex)
     return tonumber(itemId)
 end
 
-local function GetProvisioningCheckboxValue()
-    return CraftingMaterialLevelDisplay.enableProvisioning
-end
-
-local function ToggleProvisioningCheckboxValue()
-    if (GetProvisioningCheckboxValue() == true) then
-        CraftingMaterialLevelDisplay.enableProvisioning = false
-    else
-        CraftingMaterialLevelDisplay.enableProvisioning = true
-    end
-end
-
 local function BuildAddonMenu()
     local LAM = LibStub:GetLibrary("LibAddonMenu-1.0")
     local panelId = LAM:CreateControlPanel(CraftingMaterialLevelDisplay.name.."ControlPanel", "Crafting Material Level Display")
     LAM:AddHeader(panelId, CraftingMaterialLevelDisplay.name.."ControlPanelHeader", "By Marihk")
 
     LAM:AddCheckbox(panelId,
-        "CraftingMaterialLevelDisplayProvisioningCheckbox",
+        CraftingMaterialLevelDisplay.name.."ProvisioningCheckbox",
         "Show Provisioning levels",
-        "Whether or not to display provisioning levels in tooltips. Disable if another mod provides the same or better information.",
-        GetProvisioningCheckboxValue,
-        ToggleProvisioningCheckboxValue)
+        "Turn off if another mod provides the same or better information.",
+        function() return CraftingMaterialLevelDisplay.savedVariables.provisioning end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.provisioning =
+                not CraftingMaterialLevelDisplay.savedVariables.provisioning
+        end)
 end
 
-local function onLoad(event, name)
-    if name ~= CraftingMaterialLevelDisplay.name then return end
+local function InitializeSavedVariables()
+    CraftingMaterialLevelDisplay.savedVariables = ZO_SavedVars:New("CMLD_SavedVariables", 1, nil,
+        CraftingMaterialLevelDisplay.defaultSavedVariables)
+end
 
-    EVENT_MANAGER:UnregisterForEvent(CraftingMaterialLevelDisplay.name, EVENT_ADD_ON_LOADED);
-
+local function HookTooltips()
     local InvokeSetBagItemTooltip = ItemTooltip.SetBagItem
     ItemTooltip.SetBagItem = function(control, bagId, slotIndex, ...)
         local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
         InvokeSetBagItemTooltip(control, bagId, slotIndex, ...)
 
         if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
-            AddTooltipLineForProvisioningMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            if CraftingMaterialLevelDisplay.savedVariables.provisioning then
+                AddTooltipLineForProvisioningMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            end
 
         elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
             AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
@@ -125,8 +122,14 @@ local function onLoad(event, name)
             AddTooltipLineForEnchantingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         end
     end
+end
 
+local function onLoad(event, name)
+    if name ~= CraftingMaterialLevelDisplay.name then return end
+    EVENT_MANAGER:UnregisterForEvent(CraftingMaterialLevelDisplay.name, EVENT_ADD_ON_LOADED);
+    InitializeSavedVariables()
     BuildAddonMenu()
+    HookTooltips()
 end
 
 EVENT_MANAGER:RegisterForEvent(CraftingMaterialLevelDisplay.name, EVENT_ADD_ON_LOADED, onLoad)

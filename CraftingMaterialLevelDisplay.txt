@@ -3,6 +3,7 @@
 ## Version: v0.5
 ## Author: Marihk
 ## Description: Displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
+## SavedVariables: CMLD_SavedVariables
 ## OptionalDependsOn: LibAddonMenu-1.0 LibStub
 
 lib\LibStub\LibStub.lua
