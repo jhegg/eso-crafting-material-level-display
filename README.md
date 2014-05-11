@@ -13,6 +13,21 @@ Instead, I created this addon to ease the identification of crafting materials t
 
 The addon should theoretically work with non-English game clients, but it has not been tested. It is using item IDs for comparison with the item/tooltip list that I've bundled (pulling data from both Tamriel Journal and ESOHead), so the tooltip text should be displayed as expected; but note that the tooltip text is not translated.
 
+## Libraries used
+
+* LibAddonMenu
+* LibStub
+
+## Where can I download official releases of this addon?
+
+* ESOUI - http://www.esoui.com/downloads/info459-CraftingMaterialLevelDisplay.html
+* Curse - http://www.curse.com/teso-addons/teso/crafting-material-level-display
+* GitHub (development site) - https://github.com/jhegg/eso-crafting-material-level-display/
+
+## Where should I file bugs?
+
+If you see text such as "Unknown crafting item ID ##### - please submit a bug for CraftingMaterialLevelDisplay", please either leave a comment at the ESOUI page, or feel free to file a bug on the GitHub page.
+
 ## Screenshots
 
 ### Primary Ingredients
