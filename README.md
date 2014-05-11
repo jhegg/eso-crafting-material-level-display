@@ -58,3 +58,15 @@ The added text for this screenshot is "**Level 26 - 34**".
 The added text for this screenshot is "**Level 16 - 24**".
 
 ![Blacksmithing Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-blacksmithing-v0.4.jpg)
+
+### Enchanting - Potency Rune
+
+The added text for this screenshot is "**Raise, Slight, Potency Level 2, Gear Level 15 - 25**".
+
+![Enchanting Potency Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-potency-rune-v0.5.jpg)
+
+### Enchanting - Essence Rune
+
+The added text for this screenshot is "**For both Armor and Weapon Glyphs**".
+
+![Enchanting Essence Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-essence-rune-v0.5.jpg)
