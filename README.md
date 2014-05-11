@@ -15,18 +15,18 @@ The addon should theoretically work with non-English game clients, but it has no
 
 ## Libraries used
 
-* LibAddonMenu
-* LibStub
+* [LibAddonMenu](http://www.esoui.com/downloads/info7-LibAddonMenu.html)
+* [LibStub](http://www.esoui.com/downloads/info44-LibStub.html)
 
 ## Where can I download official releases of this addon?
 
-* ESOUI - http://www.esoui.com/downloads/info459-CraftingMaterialLevelDisplay.html
-* Curse - http://www.curse.com/teso-addons/teso/crafting-material-level-display
-* GitHub (development site) - https://github.com/jhegg/eso-crafting-material-level-display/
+* [ESOUI](http://www.esoui.com/downloads/info459-CraftingMaterialLevelDisplay.html)
+* [Curse](http://www.curse.com/teso-addons/teso/crafting-material-level-display)
+* [GitHub (development site)](https://github.com/jhegg/eso-crafting-material-level-display/)
 
 ## Where should I file bugs?
 
-If you see text such as "Unknown crafting item ID ##### - please submit a bug for CraftingMaterialLevelDisplay", please either leave a comment at the ESOUI page, or feel free to file a bug on the GitHub page.
+If you see text such as "Unknown crafting item ID ##### - please submit a bug for CraftingMaterialLevelDisplay", please either leave a comment at the [ESOUI page](http://www.esoui.com/downloads/info459-CraftingMaterialLevelDisplay.html#comments), or feel free to file a bug on the [GitHub issues page](https://github.com/jhegg/eso-crafting-material-level-display/issues).
 
 ## Screenshots
 
