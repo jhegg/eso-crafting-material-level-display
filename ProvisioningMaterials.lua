@@ -5,7 +5,8 @@ ProvisioningMaterials = {
     [27003] = {tooltip = "Secondary Ingredient, Level 50, Increase Max Health"}, -- baker's flour
     [34345] = {tooltip = "Primary Ingredient, Level 40, All Alliances"}, -- crystal berry
     [28608] = {tooltip = "Primary Ingredient, Level 25, Ebonheart Pact"}, -- plump maggots
-    [27051] = {tooltip = "Tier 3 Ingredient"}, -- jazbay grapes
+    [27051] = {tooltip = "Tier 3 Ingredient"}, -- jazbay grapes #1
+    [34349] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- jazbay grapes #2
     [33753] = {tooltip = "Primary Ingredient, Level 5, Daggerfall Covenant"}, -- battaglir weeds
     [33769] = {tooltip = "Primary Ingredient, Level 10, Daggerfall Covenant"}, -- tangerine
     [26988] = {tooltip = "Secondary Ingredient, Level 30-35, Increase Max Magicka"}, -- stock
