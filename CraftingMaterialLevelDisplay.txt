@@ -1,6 +1,6 @@
 ## Title: Crafting Material Level Display
 ## APIVersion: 100003
-## Description: v0.4 of an Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
+## Description: v0.5 of an Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
 
 ClothingMaterials.lua
 BlacksmithingMaterials.lua
