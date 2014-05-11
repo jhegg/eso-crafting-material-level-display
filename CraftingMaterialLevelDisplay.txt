@@ -1,6 +1,6 @@
 ## Title: Crafting Material Level Display
 ## APIVersion: 100003
-## Version: v0.5
+## Version: v1.0
 ## Author: Marihk
 ## Description: Displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
 ## SavedVariables: CMLD_SavedVariables
