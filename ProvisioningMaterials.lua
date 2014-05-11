@@ -97,7 +97,7 @@ ProvisioningMaterials = {
     [28638] = {tooltip = "Primary Ingredient, Level 30, Ebonheart Pact"}, -- river grapes
     [33770] = {tooltip = "Primary Ingredient, Level 15, Daggerfall Covenant"}, -- wasp squeezings
     [34347] = {tooltip = "Primary Ingredient, Level 50, All Alliances"}, -- mountain berries
-    [33783] = {tooltip = "Primary Ingredient, Level 45, All Alliances"}, -- kaveh beans
+    [34346] = {tooltip = "Primary Ingredient, Level 45, All Alliances"}, -- kaveh beans
     [34321] = {tooltip = "Primary Ingredient, Level 40, All Alliances"}, -- beef
     [40262] = {tooltip = "Secondary Ingredient, Level 30-35, Increase Health Recovery"}, -- caramalt
     [34334] = {tooltip = "Primary Ingredient, Level 25, Aldmeri Dominion"}, -- glitter rock
