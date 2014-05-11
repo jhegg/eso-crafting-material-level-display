@@ -19,7 +19,7 @@ The addon should theoretically work with non-English game clients, but it has no
 
 ### Primary Ingredients
 
-This screenshot shows a primary ingredient, and also the addon working in conjunction with [Harven's Provisioning Tooltips](http://www.esoui.com/downloads/info435-HarvensProvisioningTooltips.html), which is a good addon to identify which recipes the ingredient is used with. The text that is added says "**Primary Ingredient, Level 20, Ebonheart Pact**".
+This screenshot shows a primary ingredient, with text added that says "**Primary Ingredient, Level 20, Ebonheart Pact**".
 
 ![Primary Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-primary-v0.4.jpg)
 
