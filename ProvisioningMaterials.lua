@@ -60,7 +60,7 @@ ProvisioningMaterials = {
     [27059] = {tooltip = "Tier 3 Ingredient"}, -- oats
     [33772] = {tooltip = "Primary Ingredient, Level 25, Daggerfall Covenant"}, -- orc hops
     [26987] = {tooltip = "Secondary Ingredient, Level 20-25, Increase Max Magicka"}, -- broth
-    [28625] = {tooltip = "Primary Ingredient, Level 35, Aldmeri Dominion"}, -- saltrice
+    [34312] = {tooltip = "Primary Ingredient, Level 35, Aldmeri Dominion"}, -- saltrice
     [26990] = {tooltip = "Secondary Ingredient, Level 50, Increase Max Magicka"}, -- glace viande
     [34336] = {tooltip = "Primary Ingredient, Level 35, Aldmeri Dominion"}, -- spring essence
     [40263] = {tooltip = "Secondary Ingredient, Level 40-45, Increase Health Recovery"}, -- wheat malt
