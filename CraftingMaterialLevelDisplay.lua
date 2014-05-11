@@ -3,6 +3,10 @@ local CraftingMaterialLevelDisplay = {
     savedVariables,
     defaultSavedVariables = {
         provisioning = true,
+        woodworking = true,
+        blacksmithing = true,
+        clothing = true,
+        enchanting = true,
     },
 }
 
@@ -81,11 +85,51 @@ local function BuildAddonMenu()
     LAM:AddCheckbox(panelId,
         CraftingMaterialLevelDisplay.name.."ProvisioningCheckbox",
         "Show Provisioning levels",
-        "Turn off if another mod provides the same or better information.",
+        nil,
         function() return CraftingMaterialLevelDisplay.savedVariables.provisioning end,
         function()
             CraftingMaterialLevelDisplay.savedVariables.provisioning =
                 not CraftingMaterialLevelDisplay.savedVariables.provisioning
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."WoodworkingCheckbox",
+        "Show Woodworking levels",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.woodworking end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.woodworking =
+            not CraftingMaterialLevelDisplay.savedVariables.woodworking
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."BlacksmithingCheckbox",
+        "Show Blacksmithing levels",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.blacksmithing end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.blacksmithing =
+            not CraftingMaterialLevelDisplay.savedVariables.blacksmithing
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."ClothingCheckbox",
+        "Show Clothing levels",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.clothing end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.clothing =
+            not CraftingMaterialLevelDisplay.savedVariables.clothing
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."EnchantingCheckbox",
+        "Show Enchanting levels",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.enchanting end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.enchanting =
+            not CraftingMaterialLevelDisplay.savedVariables.enchanting
         end)
 end
 
@@ -106,20 +150,28 @@ local function HookTooltips()
             end
 
         elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
-            AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            if CraftingMaterialLevelDisplay.savedVariables.woodworking then
+                AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            end
 
         elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
-            AddTooltipLineForBlacksmithingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            if CraftingMaterialLevelDisplay.savedVariables.blacksmithing then
+                AddTooltipLineForBlacksmithingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            end
 
         elseif tradeSkillType == CRAFTING_TYPE_CLOTHIER then
-            AddTooltipLineForClothingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            if CraftingMaterialLevelDisplay.savedVariables.clothing then
+                AddTooltipLineForClothingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            end
 
         elseif tradeSkillType == CRAFTING_TYPE_ENCHANTING
                 and itemType ~= ITEMTYPE_GLYPH_ARMOR
                 and itemType ~= ITEMTYPE_GLYPH_JEWELRY
                 and itemType ~= ITEMTYPE_GLYPH_WEAPON then
             -- Does not need to account for the created Glyphs, just the runes
-            AddTooltipLineForEnchantingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            if CraftingMaterialLevelDisplay.savedVariables.enchanting then
+                AddTooltipLineForEnchantingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            end
         end
     end
 end
