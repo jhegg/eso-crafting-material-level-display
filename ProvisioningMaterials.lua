@@ -5,7 +5,8 @@ ProvisioningMaterials = {
     [27003] = {tooltip = "Secondary Ingredient, Level 50, Increase Max Health"}, -- baker's flour
     [34345] = {tooltip = "Primary Ingredient, Level 40, All Alliances"}, -- crystal berry
     [28608] = {tooltip = "Primary Ingredient, Level 25, Ebonheart Pact"}, -- plump maggots
-    [27051] = {tooltip = "Tier 3 Ingredient"}, -- jazbay grapes
+    [27051] = {tooltip = "Tier 3 Ingredient"}, -- jazbay grapes #1
+    [34349] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- jazbay grapes #2
     [33753] = {tooltip = "Primary Ingredient, Level 5, Daggerfall Covenant"}, -- battaglir weeds
     [33769] = {tooltip = "Primary Ingredient, Level 10, Daggerfall Covenant"}, -- tangerine
     [26988] = {tooltip = "Secondary Ingredient, Level 30-35, Increase Max Magicka"}, -- stock
@@ -60,7 +61,7 @@ ProvisioningMaterials = {
     [27059] = {tooltip = "Tier 3 Ingredient"}, -- oats
     [33772] = {tooltip = "Primary Ingredient, Level 25, Daggerfall Covenant"}, -- orc hops
     [26987] = {tooltip = "Secondary Ingredient, Level 20-25, Increase Max Magicka"}, -- broth
-    [28625] = {tooltip = "Primary Ingredient, Level 35, Aldmeri Dominion"}, -- saltrice
+    [34312] = {tooltip = "Primary Ingredient, Level 35, Aldmeri Dominion"}, -- saltrice
     [26990] = {tooltip = "Secondary Ingredient, Level 50, Increase Max Magicka"}, -- glace viande
     [34336] = {tooltip = "Primary Ingredient, Level 35, Aldmeri Dominion"}, -- spring essence
     [40263] = {tooltip = "Secondary Ingredient, Level 40-45, Increase Health Recovery"}, -- wheat malt
@@ -97,13 +98,13 @@ ProvisioningMaterials = {
     [28638] = {tooltip = "Primary Ingredient, Level 30, Ebonheart Pact"}, -- river grapes
     [33770] = {tooltip = "Primary Ingredient, Level 15, Daggerfall Covenant"}, -- wasp squeezings
     [34347] = {tooltip = "Primary Ingredient, Level 50, All Alliances"}, -- mountain berries
-    [33783] = {tooltip = "Primary Ingredient, Level 45, All Alliances"}, -- kaveh beans
+    [34346] = {tooltip = "Primary Ingredient, Level 45, All Alliances"}, -- kaveh beans
     [34321] = {tooltip = "Primary Ingredient, Level 40, All Alliances"}, -- beef
     [40262] = {tooltip = "Secondary Ingredient, Level 30-35, Increase Health Recovery"}, -- caramalt
     [34334] = {tooltip = "Primary Ingredient, Level 25, Aldmeri Dominion"}, -- glitter rock
     [28606] = {tooltip = "Primary Ingredient, Level 15, Ebonheart Pact"}, -- plump worms
     [33755] = {tooltip = "Primary Ingredient, Level 35, Daggerfall Covenant"}, -- flank steak
-    [33778] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- bervez fruit
+    [34348] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- bervez fruit
     [34308] = {tooltip = "Primary Ingredient, Level 20, Aldmeri Dominion"}, -- goat bits
     [34332] = {tooltip = "Primary Ingredient, Level 15, Aldmeri Dominion"}, -- wisp floss
     [28636] = {tooltip = "Primary Ingredient, Level 15, Ebonheart Pact"}, -- dragon's-tongue sap

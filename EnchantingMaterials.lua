@@ -50,7 +50,9 @@ EnchantingMaterials = {
 
     -- Essence runes for Jewelry Glyphs
     [45836] = {tooltip = "For Jewelry Glyphs"}, -- denima
+    [45844] = {tooltip = "For Jewelry Glyphs"}, -- jaedi
     [45849] = {tooltip = "For Jewelry Glyphs"}, -- kaderi
+    [45845] = {tooltip = "For Jewelry Glpyhs"}, -- lire
     [45848] = {tooltip = "For Jewelry Glyphs"}, -- makderi
     [45835] = {tooltip = "For Jewelry Glyphs"}, -- makkoma
     [45846] = {tooltip = "For Jewelry Glyphs"}, -- oru
