@@ -5,7 +5,7 @@ ClothingMaterials = {
     [4463] = {tooltip = "Level 16 - 24"}, -- flax
     [23129] = {tooltip = "Level 26 - 34"}, -- raw cotton
     [23125] = {tooltip = "Level 26 - 34"}, -- cotton
-    [23129] = {tooltip = "Level 36 - 44"}, -- raw spidersilk
+    [23130] = {tooltip = "Level 36 - 44"}, -- raw spidersilk
     [23126] = {tooltip = "Level 36 - 44"}, -- spidersilk
     [23131] = {tooltip = "Level 46 - 50"}, -- raw ebonthread
     [23127] = {tooltip = "Level 46 - 50"}, -- ebonthread
