@@ -4,6 +4,7 @@
 
 ClothingMaterials.lua
 BlacksmithingMaterials.lua
+EnchantingMaterials.lua
 ProvisioningMaterials.lua
 WoodworkingMaterials.lua
 CraftingMaterialLevelDisplay.lua

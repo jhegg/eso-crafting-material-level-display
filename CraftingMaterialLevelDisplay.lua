@@ -52,6 +52,17 @@ local function AddTooltipLineForClothingMaterial(control, itemId)
     end
 end
 
+local function AddTooltipLineForEnchantingMaterial(control, itemId)
+    if EnchantingMaterials[itemId] then
+        -- Ignore the Aspect runes until I have information worth displaying
+        if EnchantingMaterials[itemId].aspect ~= nil then return end
+
+        AddTooltipLine(control, EnchantingMaterials[itemId].tooltip)
+    else
+        OutputErrorForMissingItemId(itemId)
+    end
+end
+
 local function GetItemIdFromBagAndSlot(bagId, slotIndex)
     local itemLink = GetItemLink(bagId, slotIndex)
     local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
@@ -65,16 +76,27 @@ local function onLoad(event, name)
 
     local InvokeSetBagItemTooltip = ItemTooltip.SetBagItem
     ItemTooltip.SetBagItem = function(control, bagId, slotIndex, ...)
-        local tradeSkillType = GetItemCraftingInfo(bagId, slotIndex)
+        local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
         InvokeSetBagItemTooltip(control, bagId, slotIndex, ...)
+
         if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
             AddTooltipLineForProvisioningMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+
         elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
             AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+
         elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
             AddTooltipLineForBlacksmithingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+
         elseif tradeSkillType == CRAFTING_TYPE_CLOTHIER then
             AddTooltipLineForClothingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+
+        elseif tradeSkillType == CRAFTING_TYPE_ENCHANTING
+                and itemType ~= ITEMTYPE_GLYPH_ARMOR
+                and itemType ~= ITEMTYPE_GLYPH_JEWELRY
+                and itemType ~= ITEMTYPE_GLYPH_WEAPON then
+            -- Does not need to account for the created Glyphs, just the runes
+            AddTooltipLineForEnchantingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         end
     end
 end
