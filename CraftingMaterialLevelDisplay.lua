@@ -1,5 +1,6 @@
 local CraftingMaterialLevelDisplay = {
-    name = "CraftingMaterialLevelDisplay"
+    name = "CraftingMaterialLevelDisplay",
+    enableProvisioning = true
 }
 
 local function AddTooltipLine(control, tooltipLine)
@@ -69,6 +70,31 @@ local function GetItemIdFromBagAndSlot(bagId, slotIndex)
     return tonumber(itemId)
 end
 
+local function GetProvisioningCheckboxValue()
+    return CraftingMaterialLevelDisplay.enableProvisioning
+end
+
+local function ToggleProvisioningCheckboxValue()
+    if (GetProvisioningCheckboxValue() == true) then
+        CraftingMaterialLevelDisplay.enableProvisioning = false
+    else
+        CraftingMaterialLevelDisplay.enableProvisioning = true
+    end
+end
+
+local function BuildAddonMenu()
+    local LAM = LibStub:GetLibrary("LibAddonMenu-1.0")
+    local panelId = LAM:CreateControlPanel(CraftingMaterialLevelDisplay.name.."ControlPanel", "Crafting Material Level Display")
+    LAM:AddHeader(panelId, CraftingMaterialLevelDisplay.name.."ControlPanelHeader", "By Marihk")
+
+    LAM:AddCheckbox(panelId,
+        "CraftingMaterialLevelDisplayProvisioningCheckbox",
+        "Show Provisioning levels",
+        "Whether or not to display provisioning levels in tooltips. Disable if another mod provides the same or better information.",
+        GetProvisioningCheckboxValue,
+        ToggleProvisioningCheckboxValue)
+end
+
 local function onLoad(event, name)
     if name ~= CraftingMaterialLevelDisplay.name then return end
 
@@ -99,6 +125,8 @@ local function onLoad(event, name)
             AddTooltipLineForEnchantingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
         end
     end
+
+    BuildAddonMenu()
 end
 
 EVENT_MANAGER:RegisterForEvent(CraftingMaterialLevelDisplay.name, EVENT_ADD_ON_LOADED, onLoad)
