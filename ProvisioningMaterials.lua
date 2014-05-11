@@ -104,7 +104,7 @@ ProvisioningMaterials = {
     [34334] = {tooltip = "Primary Ingredient, Level 25, Aldmeri Dominion"}, -- glitter rock
     [28606] = {tooltip = "Primary Ingredient, Level 15, Ebonheart Pact"}, -- plump worms
     [33755] = {tooltip = "Primary Ingredient, Level 35, Daggerfall Covenant"}, -- flank steak
-    [33778] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- bervez fruit
+    [34348] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- bervez fruit
     [34308] = {tooltip = "Primary Ingredient, Level 20, Aldmeri Dominion"}, -- goat bits
     [34332] = {tooltip = "Primary Ingredient, Level 15, Aldmeri Dominion"}, -- wisp floss
     [28636] = {tooltip = "Primary Ingredient, Level 15, Ebonheart Pact"}, -- dragon's-tongue sap
