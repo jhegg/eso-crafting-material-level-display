@@ -39,7 +39,7 @@ ProvisioningMaterials = {
     [28603] = {tooltip = "Primary Ingredient, Level 1, Ebonheart Pact"}, -- goat meat
     [34304] = {tooltip = "Primary Ingredient, Level 1, Aldmeri Dominion"}, -- pork
     [28634] = {tooltip = "Primary Ingredient, Level 5, Ebonheart Pact"}, -- snake venom
-    [34316] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- honey comb
+    [34324] = {tooltip = "Primary Ingredient, Level VR5, All Alliances"}, -- honey comb
     [27100] = {tooltip = "Tier 3 Ingredient"}, -- garlic
     [26975] = {tooltip = "Secondary Ingredient, Level 30-35, Increase Max Stamina"}, -- suet
     [28666] = {tooltip = "Tier 2 Ingredient, Increase Health Recovery"}, -- snowberry
@@ -112,4 +112,5 @@ ProvisioningMaterials = {
     [34333] = {tooltip = "Primary Ingredient, Level 20, Aldmeri Dominion"}, -- pig's milk
     [40267] = {tooltip = "Secondary Ingredient, Level 30-35, Increase Magicka Recovery"}, -- lado grapes
     [34305] = {tooltip = "Primary Ingredient, Level 5, Aldmeri Dominion"}, -- guar eggs
+    [28600] = {tooltip = "Unknown Ingredient :("}, -- carrots
 }
