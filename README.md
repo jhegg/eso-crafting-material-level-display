@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.0.2
+Crafting Material Level Display - v1.0.3
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
@@ -30,29 +30,29 @@ If you see text such as "Unknown crafting item ID ##### - please submit a bug fo
 
 ## Screenshots
 
-### Primary Ingredients
+### Provisioning - Primary Ingredients
 
-This screenshot shows a primary ingredient, with text added that says "**Primary Ingredient, Level 20, Ebonheart Pact**".
+The text that is added says "**Primary Ingredient, Level 20, Ebonheart Pact**".
 
 ![Primary Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-primary-v0.4.jpg)
 
-### Secondary Ingredients
+### Provisioning - Secondary Ingredients
 
-The added text for this screenshot is "**Secondary Ingredient, Level 20-25, Increase Stamina Recovery**".
+The added text for this screenshot is "**Secondary Ingredient, Level 30-35, Increase Max Magicka**".
 
 ![Secondary Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-secondary-v0.4.jpg)
 
-### Tier 2 Ingredients
+### Provisioning - Blue and Purple Flavor Ingredients
 
-The added text for this screenshot is "**Tier 2 Ingredient, Increase Health Recovery**".
+The added text for this screenshot is "**For extra flavor in blue and purple recipes**".
 
-![Tier 2 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-tier2-v0.4.jpg)
+![Tier 2 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-flavor-blue_and_purple-v1.3.jpg)
 
-### Tier 3 Ingredients
+### Provisioning - Purple Flavor Ingredients
 
-The added text for this screenshot is "**Tier 3 Ingredient**".
+The added text for this screenshot is "**For extra flavor in purple recipes**".
 
-![Tier 3 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-tier3-v0.4.jpg)
+![Tier 3 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-flavor-purple-v1.3.jpg)
 
 ### Woodworking
 
