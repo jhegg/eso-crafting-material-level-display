@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.0.3
+Crafting Material Level Display - v1.0.4
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
@@ -46,13 +46,13 @@ The added text for this screenshot is "**Secondary Ingredient, Level 30-35, Incr
 
 The added text for this screenshot is "**For extra flavor in blue and purple recipes**".
 
-![Tier 2 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-flavor-blue_and_purple-v1.3.jpg)
+![Tier 2 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-flavor-blue_and_purple-v1.0.4.jpg)
 
 ### Provisioning - Purple Flavor Ingredients
 
 The added text for this screenshot is "**For extra flavor in purple recipes**".
 
-![Tier 3 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-flavor-purple-v1.3.jpg)
+![Tier 3 Ingredient Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-flavor-purple-v1.0.4.jpg)
 
 ### Woodworking
 
