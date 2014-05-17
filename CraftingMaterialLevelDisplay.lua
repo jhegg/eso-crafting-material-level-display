@@ -3,6 +3,7 @@ local CraftingMaterialLevelDisplay = {
     savedVariables,
     defaultSavedVariables = {
         provisioning = true,
+        provisioningFlavor = true,
         woodworking = true,
         blacksmithing = true,
         clothing = true,
@@ -21,7 +22,15 @@ end
 
 local function AddTooltipLineForProvisioningMaterial(control, itemId)
     if ProvisioningMaterials[itemId] then
-        AddTooltipLine(control, ProvisioningMaterials[itemId].tooltip)
+        local text = ProvisioningMaterials[itemId].tooltip
+        if CraftingMaterialLevelDisplay.savedVariables.provisioningFlavor == false then
+            if text == "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes" then
+                text = "Tier 2 Ingredient"
+            elseif text == "For extra flavor in |cAA00FFpurple|r recipes" then
+                text = "Tier 3 Ingredient"
+            end
+        end
+        AddTooltipLine(control, text)
     else
         OutputErrorForMissingItemId(itemId)
     end
@@ -90,6 +99,16 @@ local function BuildAddonMenu()
         function()
             CraftingMaterialLevelDisplay.savedVariables.provisioning =
                 not CraftingMaterialLevelDisplay.savedVariables.provisioning
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."ProvisioningFlavorCheckbox",
+        "Use Flavor text instead of Tier 2/3 text",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.provisioningFlavor end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.provisioningFlavor =
+            not CraftingMaterialLevelDisplay.savedVariables.provisioningFlavor
         end)
 
     LAM:AddCheckbox(panelId,
