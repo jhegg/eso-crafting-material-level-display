@@ -9,11 +9,11 @@ EnchantingMaterials = {
     [45809] = {tooltip = "Boost, Moderate, Potency Level 4, Gear Level 30 - 40"}, -- edora
     [45810] = {tooltip = "Advance, Average, Potency Level 4, Gear Level 35 - 45"}, -- jaera
     [45811] = {tooltip = "Augment, Strong, Potency Level 5, Gear Level 40 - 50"}, -- pora
-    [45812] = {tooltip = "Strenghten, Great, Potency Level 5, Gear Level 45 - 50"}, -- denara
-    [45813] = {tooltip = "Exaggerate, Greater, Potency Level 6, Gear Level VR1 - VR3"}, -- rera
-    [45814] = {tooltip = "Empower, Greater, Potency Level 7, Gear Level VR3 - VR5"}, -- derado
-    [45815] = {tooltip = "Magnify, Grand, Potency Level 8, Gear Level VR5 - VR8"}, -- recura
-    [45816] = {tooltip = "Intensify, Monumental, Potency Level 9, Gear Level VR8 - VR10"}, -- cura
+    [45812] = {tooltip = "Strenghten, Great, Potency Level 5, Gear Level VR1 - VR3"}, -- denara
+    [45813] = {tooltip = "Exaggerate, Greater, Potency Level 6, Gear Level VR3 - VR5"}, -- rera
+    [45814] = {tooltip = "Empower, Greater, Potency Level 7, Gear Level VR5 - VR7"}, -- derado
+    [45815] = {tooltip = "Magnify, Grand, Potency Level 8, Gear Level VR7 - VR9"}, -- recura
+    [45816] = {tooltip = "Intensify, Monumental, Potency Level 9, Gear Level VR10 - VR14"}, -- cura
 
     -- Subtractive Potency runes
     [45817] = {tooltip = "Reduce, Trifling, Potency Level 1, Gear Level 1 - 10"}, -- jode
@@ -25,11 +25,11 @@ EnchantingMaterials = {
     [45823] = {tooltip = "Diminish, Moderate, Potency Level 4, Gear Level 30 - 40"}, -- pojode
     [45824] = {tooltip = "Weaken, Average, Potency Level 4, Gear Level 35 - 45"}, -- rekude
     [45825] = {tooltip = "Lessen, Strong, Potency Level 5, Gear Level 40 - 50"}, -- hade
-    [45826] = {tooltip = "Impair, Great, Potency Level 5, Gear Level 45 - 50"}, -- idode
-    [45827] = {tooltip = "Remove, Greater, Potency Level 6, Gear Level VR1 - VR3"}, -- pode
-    [45828] = {tooltip = "Drain, Greater, Potency Level 7, Gear Level VR3 - VR5"}, -- kedeko
-    [45829] = {tooltip = "Deprive, Grand, Potency Level 8, Gear Level VR5 - VR8"}, -- rede
-    [45830] = {tooltip = "Negate, Monumental, Potency Level 9, Gear Level VR8 - VR10"}, -- kude
+    [45826] = {tooltip = "Impair, Great, Potency Level 5, Gear Level VR1 - VR3"}, -- idode
+    [45827] = {tooltip = "Remove, Greater, Potency Level 6, Gear Level VR3 - VR5"}, -- pode
+    [45828] = {tooltip = "Drain, Greater, Potency Level 7, Gear Level VR5 - VR7"}, -- kedeko
+    [45829] = {tooltip = "Deprive, Grand, Potency Level 8, Gear Level VR7 - VR9"}, -- rede
+    [45830] = {tooltip = "Negate, Monumental, Potency Level 9, Gear Level VR10 - VR14"}, -- kude
 
     -- Essence runes for both Armor and Weapon Glyphs
     [45833] = {tooltip = "For both Armor and Weapon Glyphs"}, -- deni

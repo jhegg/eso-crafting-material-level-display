@@ -23,8 +23,8 @@ WoodworkingMaterials = {
     [23137] = {tooltip = "Level VR7 - VR8"}, -- rough mahogany
     [46141] = {tooltip = "Level VR7 - VR8"}, -- sanded mahogany
 
-    [23138] = {tooltip = "Level VR9 - VR10"}, -- rough nightwood
-    [46142] = {tooltip = "Level VR9 - VR10"}, -- sanded nightwood
+    [23138] = {tooltip = "Level VR9 - VR12"}, -- rough nightwood
+    [46142] = {tooltip = "Level VR9 - VR12"}, -- sanded nightwood
 
     [54178] = {resin = true}, -- pitch
     [54179] = {resin = true}, -- turpen

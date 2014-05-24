@@ -15,8 +15,8 @@ ClothingMaterials = {
     [46132] = {tooltip = "Level VR4 - VR6"}, -- ironthread
     [33219] = {tooltip = "Level VR7 - VR8"}, -- raw silverweed
     [46133] = {tooltip = "Level VR7 - VR8"}, -- silverweave
-    [33220] = {tooltip = "Level VR9 - VR10"}, -- raw void bloom
-    [46134] = {tooltip = "Level VR9 - VR10"}, -- void cloth
+    [33220] = {tooltip = "Level VR9 - VR12"}, -- raw void bloom
+    [46134] = {tooltip = "Level VR9 - VR12"}, -- void cloth
 
     [793] = {tooltip = "Level 1 - 14"}, -- rawhide scraps
     [794] = {tooltip = "Level 1 - 14"}, -- rawhide
@@ -34,8 +34,8 @@ ClothingMaterials = {
     [46136] = {tooltip = "Level VR4 - VR6"}, -- iron hide
     [800] = {tooltip = "Level VR7 - VR8"}, -- superb hide scraps
     [46137] = {tooltip = "Level VR7 - VR8"}, -- superb hide
-    [4478] = {tooltip = "Level VR9 - VR10"}, -- shadowhide scraps
-    [46138] = {tooltip = "Level VR9 - VR10"}, -- shadowhide
+    [4478] = {tooltip = "Level VR9 - VR12"}, -- shadowhide scraps
+    [46138] = {tooltip = "Level VR9 - VR12"}, -- shadowhide
 
     [54174] = {tannin = true}, -- hemming
     [54175] = {tannin = true}, -- embroidery

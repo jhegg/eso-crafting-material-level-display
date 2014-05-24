@@ -23,8 +23,8 @@ BlacksmithingMaterials = {
     [23134] = {tooltip = "Level VR7 - VR8"}, -- quicksilver ore
     [46129] = {tooltip = "Level VR7 - VR8"}, -- quicksilver ingot
 
-    [23135] = {tooltip = "Level VR9 - VR10"}, -- voidstone ore
-    [46130] = {tooltip = "Level VR9 - VR10"}, -- voidstone ingot
+    [23135] = {tooltip = "Level VR9 - VR12"}, -- voidstone ore
+    [46130] = {tooltip = "Level VR9 - VR12"}, -- voidstone ingot
 
     [54170] = {temper = true}, -- honing stone
     [54171] = {temper = true}, -- dwarven oil
