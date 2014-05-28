@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.0.6
+Crafting Material Level Display - v1.0.7
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
@@ -74,9 +74,9 @@ The added text for this screenshot is "**Level 16 - 24**".
 
 ### Enchanting - Potency Rune
 
-The added text for this screenshot is "**Raise, Slight, Potency Level 2, Gear Level 15 - 25**".
+The added text for this screenshot is "**Level 40 - 50: Augment, Strong**".
 
-![Enchanting Potency Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-potency-rune-v0.5.jpg)
+![Enchanting Potency Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-potency-rune-v1.0.7.jpg)
 
 ### Enchanting - Essence Rune
 
