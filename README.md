@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.0.7
+Crafting Material Level Display - v1.0.8
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
@@ -83,3 +83,9 @@ The added text for this screenshot is "**Level 40 - 50: Augment, Strong**".
 The added text for this screenshot is "**For both Armor and Weapon Glyphs**".
 
 ![Enchanting Essence Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-essence-rune-v0.5.jpg)
+
+### Alchemy
+
+The added text for this screenshot is "**Restore stamina, Increase weapon power, Weapon crit, Lower Armor**".
+
+![Alchemy Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-alchemy-v1.0.8.jpg)
