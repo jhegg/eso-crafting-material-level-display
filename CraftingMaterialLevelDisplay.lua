@@ -8,6 +8,7 @@ local CraftingMaterialLevelDisplay = {
         blacksmithing = true,
         clothing = true,
         enchanting = true,
+        alchemy = true,
     },
 }
 
@@ -64,6 +65,17 @@ local function AddTooltipLineForClothingMaterial(control, itemId)
         if ClothingMaterials[itemId].tannin ~= nil then return end
 
         AddTooltipLine(control, ClothingMaterials[itemId].tooltip)
+    else
+        OutputErrorForMissingItemId(itemId)
+    end
+end
+
+local function AddTooltipLineForAlchemyMaterial(control, itemId)
+    if AlchemyMaterials[itemId] then
+        -- Ignore the Solvent items until I have information worth displaying
+        if AlchemyMaterials[itemId].solvent ~= nil then return end
+
+        AddTooltipLine(control, AlchemyMaterials[itemId].tooltip)
     else
         OutputErrorForMissingItemId(itemId)
     end
@@ -142,6 +154,16 @@ local function BuildAddonMenu()
         end)
 
     LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."AlchemyCheckbox",
+        "Show Alchemy tooltips",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.alchemy end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.alchemy =
+            not CraftingMaterialLevelDisplay.savedVariables.alchemy
+        end)
+
+    LAM:AddCheckbox(panelId,
         CraftingMaterialLevelDisplay.name.."EnchantingCheckbox",
         "Show Enchanting levels",
         nil,
@@ -183,6 +205,11 @@ local function HookTooltips()
                 AddTooltipLineForClothingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
             end
 
+        elseif tradeSkillType == CRAFTING_TYPE_ALCHEMY then
+            if CraftingMaterialLevelDisplay.savedVariables.alchemy then
+                AddTooltipLineForAlchemyMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
+            end
+
         elseif tradeSkillType == CRAFTING_TYPE_ENCHANTING
                 and itemType ~= ITEMTYPE_GLYPH_ARMOR
                 and itemType ~= ITEMTYPE_GLYPH_JEWELRY
@@ -195,7 +222,7 @@ local function HookTooltips()
     end
 end
 
-local function onLoad(event, name)
+local function onLoad(_, name)
     if name ~= CraftingMaterialLevelDisplay.name then return end
     EVENT_MANAGER:UnregisterForEvent(CraftingMaterialLevelDisplay.name, EVENT_ADD_ON_LOADED);
     InitializeSavedVariables()

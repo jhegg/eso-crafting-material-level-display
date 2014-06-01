@@ -1,14 +1,15 @@
 ## Title: Crafting Material Level Display
 ## APIVersion: 100004
-## Version: 1.0.7
+## Version: 1.0.8
 ## Author: Marihk
-## Description:  v1.0.7 - Displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
+## Description:  v1.0.8 - Displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
 ## SavedVariables: CMLD_SavedVariables
 ## OptionalDependsOn: LibAddonMenu-1.0 LibStub
 
 lib\LibStub\LibStub.lua
 lib\LibAddonMenu-1.0\LibAddonMenu-1.0.lua
 
+AlchemyMaterials.lua
 ClothingMaterials.lua
 BlacksmithingMaterials.lua
 EnchantingMaterials.lua
