@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.0.9
+Crafting Material Level Display - v1.0.10
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your bag or bank).
@@ -89,3 +89,9 @@ The added text for this screenshot is "**For both Armor and Weapon Glyphs**".
 The added text for this screenshot is "**Restore stamina, Increase weapon power, Weapon crit, Lower Armor**".
 
 ![Alchemy Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-alchemy-v1.0.9.jpg)
+
+## Disclaimer
+
+This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates. 
+The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the United 
+States and/or other countries. All rights reserved.
