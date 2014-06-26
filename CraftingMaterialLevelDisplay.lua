@@ -4,9 +4,6 @@ local CraftingMaterialLevelDisplay = {
     defaultSavedVariables = {
         provisioning = true,
         provisioningFlavor = true,
-        woodworking = true,
-        blacksmithing = true,
-        clothing = true,
         enchanting = true,
         alchemy = true,
     },
@@ -32,39 +29,6 @@ local function AddTooltipLineForProvisioningMaterial(control, itemId)
             end
         end
         AddTooltipLine(control, text)
-    else
-        OutputErrorForMissingItemId(itemId)
-    end
-end
-
-local function AddTooltipLineForWoodworkingMaterial(control, itemId)
-    if WoodworkingMaterials[itemId] then
-        -- Ignore the Resin items until I have information worth displaying
-        if WoodworkingMaterials[itemId].resin ~= nil then return end
-
-        AddTooltipLine(control, WoodworkingMaterials[itemId].tooltip)
-    else
-        OutputErrorForMissingItemId(itemId)
-    end
-end
-
-local function AddTooltipLineForBlacksmithingMaterial(control, itemId)
-    if BlacksmithingMaterials[itemId] then
-        -- Ignore the Temper items until I have information worth displaying
-        if BlacksmithingMaterials[itemId].temper ~= nil then return end
-
-        AddTooltipLine(control, BlacksmithingMaterials[itemId].tooltip)
-    else
-        OutputErrorForMissingItemId(itemId)
-    end
-end
-
-local function AddTooltipLineForClothingMaterial(control, itemId)
-    if ClothingMaterials[itemId] then
-        -- Ignore the Tannin items until I have information worth displaying
-        if ClothingMaterials[itemId].tannin ~= nil then return end
-
-        AddTooltipLine(control, ClothingMaterials[itemId].tooltip)
     else
         OutputErrorForMissingItemId(itemId)
     end
@@ -124,36 +88,6 @@ local function BuildAddonMenu()
         end)
 
     LAM:AddCheckbox(panelId,
-        CraftingMaterialLevelDisplay.name.."WoodworkingCheckbox",
-        "Show Woodworking levels",
-        nil,
-        function() return CraftingMaterialLevelDisplay.savedVariables.woodworking end,
-        function()
-            CraftingMaterialLevelDisplay.savedVariables.woodworking =
-            not CraftingMaterialLevelDisplay.savedVariables.woodworking
-        end)
-
-    LAM:AddCheckbox(panelId,
-        CraftingMaterialLevelDisplay.name.."BlacksmithingCheckbox",
-        "Show Blacksmithing levels",
-        nil,
-        function() return CraftingMaterialLevelDisplay.savedVariables.blacksmithing end,
-        function()
-            CraftingMaterialLevelDisplay.savedVariables.blacksmithing =
-            not CraftingMaterialLevelDisplay.savedVariables.blacksmithing
-        end)
-
-    LAM:AddCheckbox(panelId,
-        CraftingMaterialLevelDisplay.name.."ClothingCheckbox",
-        "Show Clothing levels",
-        nil,
-        function() return CraftingMaterialLevelDisplay.savedVariables.clothing end,
-        function()
-            CraftingMaterialLevelDisplay.savedVariables.clothing =
-            not CraftingMaterialLevelDisplay.savedVariables.clothing
-        end)
-
-    LAM:AddCheckbox(panelId,
         CraftingMaterialLevelDisplay.name.."AlchemyCheckbox",
         "Show Alchemy tooltips",
         nil,
@@ -188,21 +122,6 @@ local function HookTooltips()
         if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
             if CraftingMaterialLevelDisplay.savedVariables.provisioning then
                 AddTooltipLineForProvisioningMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
-            end
-
-        elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
-            if CraftingMaterialLevelDisplay.savedVariables.woodworking then
-                AddTooltipLineForWoodworkingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
-            end
-
-        elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
-            if CraftingMaterialLevelDisplay.savedVariables.blacksmithing then
-                AddTooltipLineForBlacksmithingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
-            end
-
-        elseif tradeSkillType == CRAFTING_TYPE_CLOTHIER then
-            if CraftingMaterialLevelDisplay.savedVariables.clothing then
-                AddTooltipLineForClothingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
             end
 
         elseif tradeSkillType == CRAFTING_TYPE_ALCHEMY then
