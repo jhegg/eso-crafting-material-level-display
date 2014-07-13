@@ -13,3 +13,4 @@ AlchemyMaterials.lua
 EnchantingMaterials.lua
 ProvisioningMaterials.lua
 CraftingMaterialLevelDisplay.lua
+TooltipHooks.lua
