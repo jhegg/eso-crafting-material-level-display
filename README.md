@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.1.0
+Crafting Material Level Display - v1.2.0
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your 
@@ -16,6 +16,11 @@ premium, I wanted an easier way to identify those crafting materials for either 
 passing to an alt or even a friend. The information is readily available at the 
 [Tamriel Journal website](http://tamrieljournal.com/eso-provisioning-ingredients/), but having it integrated into the 
 tooltips feels easier.
+
+Also, this addon can display the level ranges of Enchanting Potency Runes directly in your inventory (next to the 
+Value column), to try and make it easier to decide which runes to keep. If it's too distracting or conflicts
+with another addon, you can disable that specific feature in the addon setting menu ("Show Enchanting levels in
+inventory").
 
 Note: This addon used to provide level information about Blacksmithing, Clothing, and Woodworking materials, but in 
 ESO v1.2.3, that information was put into the built-in game tooltips, so in v1.1.0 of this addon I removed that data.
