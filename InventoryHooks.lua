@@ -24,6 +24,10 @@ local function GetItemIdFromLink(itemLink)
     return tonumber(itemId)
 end
 
+local function IsTheRowRectangular(rowControl)
+    return rowControl:GetWidth() / rowControl:GetHeight() > 1.5
+end
+
 local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
     local getItemLinkFunction = lookupFunctions[1]
     local inventorySlot = rowControl.dataEntry.data
@@ -45,8 +49,10 @@ local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
         if CraftingMaterialLevelDisplay.savedVariables.enchanting then
             if EnchantingMaterials[itemId].level ~= nil then
                 label:SetText(EnchantingMaterials[itemId].level)
-                label:SetAnchor(RIGHT, rowControl, RIGHT, -50)
-                label:SetHidden(false)
+                if IsTheRowRectangular(rowControl) then
+                    label:SetAnchor(RIGHT, rowControl, RIGHT, -50)
+                    label:SetHidden(false)
+                end
             end
         end
     end
