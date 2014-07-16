@@ -1,7 +1,6 @@
 local backpackListView = PLAYER_INVENTORY.inventories[1].listView
 local bankListView = PLAYER_INVENTORY.inventories[3].listView
 local guildBankListView = PLAYER_INVENTORY.inventories[4].listView
-local lootWindowListView = LOOT_WINDOW.list
 local enchantingTableListView = ENCHANTING.inventory.list
 
 local inventoriesToItemLookupFunctions = {
@@ -9,7 +8,6 @@ local inventoriesToItemLookupFunctions = {
     [bankListView] = {GetItemLink, "bagId", "slotIndex"},
     [guildBankListView] = {GetItemLink, "bagId", "slotIndex"},
     [enchantingTableListView] = {GetItemLink, "bagId", "slotIndex"},
-    [lootWindowListView] = {GetLootItemLink, "lootId", nil},
 }
 
 local function getLabelForInventoryRowControl(row)
@@ -49,7 +47,7 @@ local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
             and itemType ~= ITEMTYPE_GLYPH_WEAPON then
         -- Does not need to account for the created Glyphs, just the runes
         if CraftingMaterialLevelDisplay.savedVariables.enchanting then
-            if EnchantingMaterials[itemId].level ~= nil then
+            if itemId and EnchantingMaterials[itemId] and EnchantingMaterials[itemId].level ~= nil then
                 label:SetText(EnchantingMaterials[itemId].level)
                 if IsTheRowRectangular(rowControl) then
                     label:SetAnchor(RIGHT, rowControl, RIGHT, -55)

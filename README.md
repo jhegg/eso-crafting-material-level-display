@@ -1,4 +1,4 @@
-Crafting Material Level Display - v1.2.1
+Crafting Material Level Display - v1.2.2
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your 
