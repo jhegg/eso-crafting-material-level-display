@@ -15,35 +15,35 @@ local function IsTheRowRectangular(rowControl)
     return rowControl:GetWidth() / rowControl:GetHeight() > 1.5
 end
 
-local function DisplayTheLabel(rowControl, labelControl, text)
+local function DisplayTheLabel(rowControl, labelControl, offset, text)
     if IsTheRowRectangular(rowControl) then
         labelControl:SetText(text)
-        labelControl:SetAnchor(RIGHT, rowControl, RIGHT, -100)
+        labelControl:SetAnchor(RIGHT, rowControl, RIGHT, offset)
         labelControl:SetHidden(false)
     end
 end
 
-local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
+local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId, offset)
     local label = getLabelForInventoryRowControl(rowControl, itemId)
 
     if tradeSkillType == CRAFTING_TYPE_CLOTHIER then
         if CraftingMaterialLevelDisplay.savedVariables.clothingInventoryList then
             if ClothingMaterials[itemId] and ClothingMaterials[itemId].level ~= nil then
-                DisplayTheLabel(rowControl, label, "["..ClothingMaterials[itemId].level.."]")
+                DisplayTheLabel(rowControl, label, offset, "["..ClothingMaterials[itemId].level.."]")
             end
         end
 
     elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
         if CraftingMaterialLevelDisplay.savedVariables.blacksmithingInventoryList then
             if BlacksmithingMaterials[itemId] and BlacksmithingMaterials[itemId].level ~= nil then
-                DisplayTheLabel(rowControl, label, "["..BlacksmithingMaterials[itemId].level.."]")
+                DisplayTheLabel(rowControl, label, offset, "["..BlacksmithingMaterials[itemId].level.."]")
             end
         end
 
     elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
         if CraftingMaterialLevelDisplay.savedVariables.woodworkingInventoryList then
             if WoodworkingMaterials[itemId] and WoodworkingMaterials[itemId].level ~= nil then
-                DisplayTheLabel(rowControl, label, "["..WoodworkingMaterials[itemId].level.."]")
+                DisplayTheLabel(rowControl, label, offset, "["..WoodworkingMaterials[itemId].level.."]")
             end
         end
 
@@ -54,7 +54,7 @@ local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType
         -- Does not need to account for the created Glyphs, just the runes
         if CraftingMaterialLevelDisplay.savedVariables.enchantingInventoryList then
             if EnchantingMaterials[itemId] and EnchantingMaterials[itemId].level ~= nil then
-                DisplayTheLabel(rowControl, label, "["..EnchantingMaterials[itemId].level.."]")
+                DisplayTheLabel(rowControl, label, offset, "["..EnchantingMaterials[itemId].level.."]")
             end
         end
     end
@@ -96,7 +96,7 @@ local function HookNormalInventoryLists()
                 local bagId = slot["bagId"]
                 local itemId = CraftingMaterialLevelDisplay.GetItemIdFromBagAndSlot(bagId, slotIndex)
                 local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
-                AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
+                AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId, -100)
             end
         end
     end
@@ -109,7 +109,7 @@ local function HookLootWindowInventoryList()
         local itemLink = GetLootItemLink(slot.lootId)
         local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
         local tradeSkillType = GetTradeSkillTypeFromItemId(itemId)
-        AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, nil, itemId)
+        AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, nil, itemId, -20)
     end
 end
 
