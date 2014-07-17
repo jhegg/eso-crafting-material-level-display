@@ -6,7 +6,11 @@ CraftingMaterialLevelDisplay = {
         provisioningFlavor = true,
         enchanting = true,
         alchemy = true,
+        showLevelsInInventoryLists = true,
+        blacksmithingInventoryList = true,
+        clothingInventoryList = true,
         enchantingInventoryList = true,
+        woodworkingInventoryList = true,
     },
     currentInventoryRows = {}
 }
@@ -67,6 +71,18 @@ local function BuildAddonMenu()
         end)
 
     LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."InvListCheckbox",
+        "Show levels in inventory lists",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.showLevelsInInventoryLists end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.showLevelsInInventoryLists =
+            not CraftingMaterialLevelDisplay.savedVariables.showLevelsInInventoryLists
+        end,
+        true,
+        "Requires /reloadui to take effect, hides all levels in inventory lists")
+
+    LAM:AddCheckbox(panelId,
         CraftingMaterialLevelDisplay.name.."EnchantingInvCheckbox",
         "Show Enchanting levels in inventory",
         nil,
@@ -74,9 +90,37 @@ local function BuildAddonMenu()
         function()
             CraftingMaterialLevelDisplay.savedVariables.enchantingInventoryList =
             not CraftingMaterialLevelDisplay.savedVariables.enchantingInventoryList
-        end,
-        true,
-        "Requires /reloadui to take effect")
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."BlacksmithingInvCheckbox",
+        "Show Blacksmithing levels in inventory",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.blacksmithingInventoryList end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.blacksmithingInventoryList =
+            not CraftingMaterialLevelDisplay.savedVariables.blacksmithingInventoryList
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."ClothingInvCheckbox",
+        "Show Clothing levels in inventory",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.clothingInventoryList end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.clothingInventoryList =
+            not CraftingMaterialLevelDisplay.savedVariables.clothingInventoryList
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."WoodworkingInvCheckbox",
+        "Show Woodworking levels in inventory",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.woodworkingInventoryList end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.woodworkingInventoryList =
+            not CraftingMaterialLevelDisplay.savedVariables.woodworkingInventoryList
+        end)
 end
 
 local function InitializeSavedVariables()

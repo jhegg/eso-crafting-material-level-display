@@ -26,12 +26,33 @@ end
 local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
     local label = getLabelForInventoryRowControl(rowControl, itemId)
 
-    if tradeSkillType == CRAFTING_TYPE_ENCHANTING
+    if tradeSkillType == CRAFTING_TYPE_CLOTHIER then
+        if CraftingMaterialLevelDisplay.savedVariables.clothingInventoryList then
+            if ClothingMaterials[itemId] and ClothingMaterials[itemId].level ~= nil then
+                DisplayTheLabel(rowControl, label, "["..ClothingMaterials[itemId].level.."]")
+            end
+        end
+
+    elseif tradeSkillType == CRAFTING_TYPE_BLACKSMITHING then
+        if CraftingMaterialLevelDisplay.savedVariables.blacksmithingInventoryList then
+            if BlacksmithingMaterials[itemId] and BlacksmithingMaterials[itemId].level ~= nil then
+                DisplayTheLabel(rowControl, label, "["..BlacksmithingMaterials[itemId].level.."]")
+            end
+        end
+
+    elseif tradeSkillType == CRAFTING_TYPE_WOODWORKING then
+        if CraftingMaterialLevelDisplay.savedVariables.woodworkingInventoryList then
+            if WoodworkingMaterials[itemId] and WoodworkingMaterials[itemId].level ~= nil then
+                DisplayTheLabel(rowControl, label, "["..WoodworkingMaterials[itemId].level.."]")
+            end
+        end
+
+    elseif tradeSkillType == CRAFTING_TYPE_ENCHANTING
             and itemType ~= ITEMTYPE_GLYPH_ARMOR
             and itemType ~= ITEMTYPE_GLYPH_JEWELRY
             and itemType ~= ITEMTYPE_GLYPH_WEAPON then
         -- Does not need to account for the created Glyphs, just the runes
-        if CraftingMaterialLevelDisplay.savedVariables.enchanting then
+        if CraftingMaterialLevelDisplay.savedVariables.enchantingInventoryList then
             if EnchantingMaterials[itemId] and EnchantingMaterials[itemId].level ~= nil then
                 DisplayTheLabel(rowControl, label, "["..EnchantingMaterials[itemId].level.."]")
             end
@@ -47,23 +68,54 @@ local inventoryLists = {
     ["enchantingTableListView"] = ENCHANTING.inventory.list,
 }
 
-function CraftingMaterialLevelDisplay.HookInventoryLists()
+local function GetTradeSkillTypeFromItemId(itemId)
+    -- in 1.3.0 it will be possible to get all info from itemLink,
+    -- but until then, look for the item in known materials
+    if not itemId then
+        return nil
+    elseif BlacksmithingMaterials[itemId] then
+        return CRAFTING_TYPE_BLACKSMITHING
+    elseif ClothingMaterials[itemId] then
+        return CRAFTING_TYPE_CLOTHIER
+    elseif EnchantingMaterials[itemId] then
+        return CRAFTING_TYPE_ENCHANTING
+    elseif WoodworkingMaterials[itemId] then
+        return CRAFTING_TYPE_WOODWORKING
+    else
+        return nil
+    end
+end
+
+local function HookNormalInventoryLists()
     for _,inventoryList in pairs(inventoryLists) do
         if inventoryList and inventoryList.dataTypes and inventoryList.dataTypes[1] then
             local existingCallbackFunction = inventoryList.dataTypes[1].setupCallback
             inventoryList.dataTypes[1].setupCallback = function(rowControl, slot)
                 existingCallbackFunction(rowControl, slot)
-
-                local inventorySlot = rowControl.dataEntry.data
-                local slotIndex = "slotIndex" and inventorySlot["slotIndex"] or nil
-                local bagId = inventorySlot["bagId"]
+                local slotIndex = "slotIndex" and slot["slotIndex"] or nil
+                local bagId = slot["bagId"]
                 local itemId = CraftingMaterialLevelDisplay.GetItemIdFromBagAndSlot(bagId, slotIndex)
                 local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
-
-                if CraftingMaterialLevelDisplay.savedVariables.enchantingInventoryList then
-                    AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
-                end
+                AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
             end
         end
+    end
+end
+
+local function HookLootWindowInventoryList()
+    local existingCallbackFunction = LOOT_WINDOW.list.dataTypes[1].setupCallback
+    LOOT_WINDOW.list.dataTypes[1].setupCallback = function(rowControl, slot)
+        existingCallbackFunction(rowControl, slot)
+        local itemLink = GetLootItemLink(slot.lootId)
+        local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
+        local tradeSkillType = GetTradeSkillTypeFromItemId(itemId)
+        AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, nil, itemId)
+    end
+end
+
+function CraftingMaterialLevelDisplay.HookInventoryLists()
+    if CraftingMaterialLevelDisplay.savedVariables.showLevelsInInventoryLists then
+        HookNormalInventoryLists()
+        HookLootWindowInventoryList()
     end
 end

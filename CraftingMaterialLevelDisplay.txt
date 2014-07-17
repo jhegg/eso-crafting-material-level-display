@@ -10,8 +10,12 @@ lib\LibStub\LibStub.lua
 lib\LibAddonMenu-1.0\LibAddonMenu-1.0.lua
 
 AlchemyMaterials.lua
+BlacksmithingMaterials.lua
+ClothingMaterials.lua
 EnchantingMaterials.lua
 ProvisioningMaterials.lua
+WoodworkingMaterials.lua
+
 CraftingMaterialLevelDisplay.lua
 InventoryHooks.lua
 TooltipHooks.lua
