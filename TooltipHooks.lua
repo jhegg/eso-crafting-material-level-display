@@ -47,34 +47,74 @@ end
 
 local function GetItemIdFromBagAndSlot(bagId, slotIndex)
     local itemLink = GetItemLink(bagId, slotIndex)
-    local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
-    return tonumber(itemId)
+    return CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
 end
 
-function CraftingMaterialLevelDisplay.HookTooltips()
+local function GetTradeSkillTypeFromItemId(itemId)
+    -- in 1.3.0 it will be possible to get all info from itemLink,
+    -- but until then, look for the item in known materials
+    if not itemId then
+        return nil
+    elseif AlchemyMaterials[itemId] then
+        return CRAFTING_TYPE_ALCHEMY
+    elseif EnchantingMaterials[itemId] then
+        return CRAFTING_TYPE_ENCHANTING
+    elseif ProvisioningMaterials[itemId] then
+        return CRAFTING_TYPE_PROVISIONING
+    else
+        return nil
+    end
+end
+
+local function AddTooltipByType(control, tradeSkillType, itemType, itemId)
+    if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
+        if CraftingMaterialLevelDisplay.savedVariables.provisioning then
+            AddTooltipLineForProvisioningMaterial(control, itemId)
+        end
+
+    elseif tradeSkillType == CRAFTING_TYPE_ALCHEMY then
+        if CraftingMaterialLevelDisplay.savedVariables.alchemy then
+            AddTooltipLineForAlchemyMaterial(control, itemId)
+        end
+
+    elseif tradeSkillType == CRAFTING_TYPE_ENCHANTING
+            and itemType ~= ITEMTYPE_GLYPH_ARMOR
+            and itemType ~= ITEMTYPE_GLYPH_JEWELRY
+            and itemType ~= ITEMTYPE_GLYPH_WEAPON then
+        -- Does not need to account for the created Glyphs, just the runes
+        if CraftingMaterialLevelDisplay.savedVariables.enchanting then
+            AddTooltipLineForEnchantingMaterial(control, itemId)
+        end
+    end
+end
+
+local function HookBagTooltip()
     local InvokeSetBagItemTooltip = ItemTooltip.SetBagItem
     ItemTooltip.SetBagItem = function(control, bagId, slotIndex, ...)
         local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
+        local itemId = GetItemIdFromBagAndSlot(bagId, slotIndex)
         InvokeSetBagItemTooltip(control, bagId, slotIndex, ...)
-
-        if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
-            if CraftingMaterialLevelDisplay.savedVariables.provisioning then
-                AddTooltipLineForProvisioningMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
-            end
-
-        elseif tradeSkillType == CRAFTING_TYPE_ALCHEMY then
-            if CraftingMaterialLevelDisplay.savedVariables.alchemy then
-                AddTooltipLineForAlchemyMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
-            end
-
-        elseif tradeSkillType == CRAFTING_TYPE_ENCHANTING
-                and itemType ~= ITEMTYPE_GLYPH_ARMOR
-                and itemType ~= ITEMTYPE_GLYPH_JEWELRY
-                and itemType ~= ITEMTYPE_GLYPH_WEAPON then
-            -- Does not need to account for the created Glyphs, just the runes
-            if CraftingMaterialLevelDisplay.savedVariables.enchanting then
-                AddTooltipLineForEnchantingMaterial(control, GetItemIdFromBagAndSlot(bagId, slotIndex))
-            end
-        end
+        AddTooltipByType(control, tradeSkillType, itemType, itemId)
     end
+end
+
+local function HookLootWindowTooltip()
+    -- The idea for this was contributed by merlight at esoui.com; thanks!
+    --
+    -- hooking InformationTooltip.SetLootItem doesn't work (as of API 100007),
+    -- but luckily tinkering with its metatable does ;)
+    local InformationTooltip_index = getmetatable(InformationTooltip).__index
+    local InvokeSetLootItemTooltip = InformationTooltip_index.SetLootItem
+    InformationTooltip_index.SetLootItem = function(control, lootId, ...)
+        local itemLink = GetLootItemLink(lootId)
+        local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
+        local tradeSkillType = GetTradeSkillTypeFromItemId(itemId)
+        InvokeSetLootItemTooltip(control, lootId, ...)
+        AddTooltipByType(control, tradeSkillType, nil, itemId)
+    end
+end
+
+function CraftingMaterialLevelDisplay.HookTooltips()
+    HookBagTooltip()
+    HookLootWindowTooltip()
 end

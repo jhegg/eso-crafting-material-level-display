@@ -11,6 +11,11 @@ CraftingMaterialLevelDisplay = {
     currentInventoryRows = {}
 }
 
+function CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
+    local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
+    return tonumber(itemId)
+end
+
 local function BuildAddonMenu()
     local LAM = LibStub:GetLibrary("LibAddonMenu-1.0")
     local panelId = LAM:CreateControlPanel(CraftingMaterialLevelDisplay.name.."ControlPanel", "Crafting Material Level Display")

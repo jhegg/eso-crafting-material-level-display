@@ -19,11 +19,6 @@ local function getLabelForInventoryRowControl(row)
     return label
 end
 
-local function GetItemIdFromLink(itemLink)
-    local itemId = select(4, ZO_LinkHandler_ParseLink(itemLink))
-    return tonumber(itemId)
-end
-
 local function IsTheRowRectangular(rowControl)
     return rowControl:GetWidth() / rowControl:GetHeight() > 1.5
 end
@@ -33,7 +28,7 @@ local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
     local inventorySlot = rowControl.dataEntry.data
     local bagId = inventorySlot[lookupFunctions[2]]
     local inventorySlotIndex = lookupFunctions[3] and inventorySlot[lookupFunctions[3]] or nil
-    local itemId = GetItemIdFromLink(getItemLinkFunction(bagId, inventorySlotIndex))
+    local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(getItemLinkFunction(bagId, inventorySlotIndex))
     local label = getLabelForInventoryRowControl(rowControl)
     label:SetText(itemId)
     label:SetFont("ZoFontGame")
