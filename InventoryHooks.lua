@@ -48,9 +48,9 @@ local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
         -- Does not need to account for the created Glyphs, just the runes
         if CraftingMaterialLevelDisplay.savedVariables.enchanting then
             if itemId and EnchantingMaterials[itemId] and EnchantingMaterials[itemId].level ~= nil then
-                label:SetText(EnchantingMaterials[itemId].level)
+                label:SetText("["..EnchantingMaterials[itemId].level.."]")
                 if IsTheRowRectangular(rowControl) then
-                    label:SetAnchor(RIGHT, rowControl, RIGHT, -55)
+                    label:SetAnchor(RIGHT, rowControl, RIGHT, -100)
                     label:SetHidden(false)
                 end
             end
