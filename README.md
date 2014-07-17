@@ -1,12 +1,26 @@
-Crafting Material Level Display - v1.2.2
+Crafting Material Level Display - v1.3.0
 ===================================
 
 An Elder Scrolls Online addon that displays the level of crafting materials in the item tooltips (as viewed from your 
-bag or bank).
+bag or bank) and inventory lists.
+
+## What does it do?
+
+This addon provides additional information about crafting materials in two places: in the item tooltips, and directly
+in the inventory lists.
+
+The tooltips contain valuable information about Alchemy, Enchanting, and Provisioning materials, such as easily
+distinguishing between positive and negative effects, or showing which faction a particular provisioning material
+belongs to.
+
+The inventory lists (bags, bank, loot, and enchanting crafting table) contain simple level ranges for Blacksmithing, 
+Clothing, Enchanting, and Woodworking materials, so that you don't have to even look at the tooltip to make a decision 
+about whether to sell low-level materials.
+
+Each piece of functionality can be disabled in the settings menu, if it conflicts with other addons or causes an error.
+I'd prefer to fix any problems, though, so please let me know if you disable something due to an error.
 
 ## What is the purpose of this addon?
-
-This addon provides additional information about Alchemy, Enchanting, and Provisioning materials.
 
 I created this addon to ease the identification of crafting materials that are no longer worthwhile for skill 
 increases. So, really, I just want the game to tell me what skill level the various crafting materials are at. For 
@@ -17,12 +31,7 @@ passing to an alt or even a friend. The information is readily available at the
 [Tamriel Journal website](http://tamrieljournal.com/eso-provisioning-ingredients/), but having it integrated into the 
 tooltips feels easier.
 
-Also, this addon can display the level ranges of Enchanting Potency Runes directly in your inventory (next to the 
-Value column) and at the crafting table, to try and make it easier to decide which runes to keep. If it's too distracting 
-or conflicts with another addon, you can disable that specific feature in the addon setting menu ("Show Enchanting levels in
-inventory").
-
-Note: This addon used to provide level information about Blacksmithing, Clothing, and Woodworking materials, but in 
+Note: This addon used to provide level information about Blacksmithing, Clothing, and Woodworking materials in tooltips, but in 
 ESO v1.2.3, that information was put into the built-in game tooltips, so in v1.1.0 of this addon I removed that data.
 
 ## Language Support
