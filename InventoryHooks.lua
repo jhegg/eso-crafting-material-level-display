@@ -1,9 +1,13 @@
-local function getLabelForInventoryRowControl(row)
+local function getLabelForInventoryRowControl(row, itemId)
     local label = CraftingMaterialLevelDisplay.currentInventoryRows[row:GetName()]
     if not label then
         label = WINDOW_MANAGER:CreateControl(row:GetName() .. "CMLD", row, CT_LABEL)
         CraftingMaterialLevelDisplay.currentInventoryRows[row:GetName()] = label
     end
+    label:SetText(itemId)
+    label:SetFont("ZoFontGame")
+    label:ClearAnchors()
+    label:SetHidden(true)
     return label
 end
 
@@ -11,12 +15,16 @@ local function IsTheRowRectangular(rowControl)
     return rowControl:GetWidth() / rowControl:GetHeight() > 1.5
 end
 
+local function DisplayTheLabel(rowControl, labelControl, text)
+    if IsTheRowRectangular(rowControl) then
+        labelControl:SetText(text)
+        labelControl:SetAnchor(RIGHT, rowControl, RIGHT, -100)
+        labelControl:SetHidden(false)
+    end
+end
+
 local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
-    local label = getLabelForInventoryRowControl(rowControl)
-    label:SetText(itemId)
-    label:SetFont("ZoFontGame")
-    label:ClearAnchors()
-    label:SetHidden(true)
+    local label = getLabelForInventoryRowControl(rowControl, itemId)
 
     if tradeSkillType == CRAFTING_TYPE_ENCHANTING
             and itemType ~= ITEMTYPE_GLYPH_ARMOR
@@ -24,12 +32,8 @@ local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType
             and itemType ~= ITEMTYPE_GLYPH_WEAPON then
         -- Does not need to account for the created Glyphs, just the runes
         if CraftingMaterialLevelDisplay.savedVariables.enchanting then
-            if itemId and EnchantingMaterials[itemId] and EnchantingMaterials[itemId].level ~= nil then
-                label:SetText("["..EnchantingMaterials[itemId].level.."]")
-                if IsTheRowRectangular(rowControl) then
-                    label:SetAnchor(RIGHT, rowControl, RIGHT, -100)
-                    label:SetHidden(false)
-                end
+            if EnchantingMaterials[itemId] and EnchantingMaterials[itemId].level ~= nil then
+                DisplayTheLabel(rowControl, label, "["..EnchantingMaterials[itemId].level.."]")
             end
         end
     end
