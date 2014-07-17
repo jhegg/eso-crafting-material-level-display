@@ -45,11 +45,6 @@ local function AddTooltipLineForEnchantingMaterial(control, itemId)
     end
 end
 
-local function GetItemIdFromBagAndSlot(bagId, slotIndex)
-    local itemLink = GetItemLink(bagId, slotIndex)
-    return CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
-end
-
 local function GetTradeSkillTypeFromItemId(itemId)
     -- in 1.3.0 it will be possible to get all info from itemLink,
     -- but until then, look for the item in known materials
@@ -92,7 +87,7 @@ local function HookBagTooltip()
     local InvokeSetBagItemTooltip = ItemTooltip.SetBagItem
     ItemTooltip.SetBagItem = function(control, bagId, slotIndex, ...)
         local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
-        local itemId = GetItemIdFromBagAndSlot(bagId, slotIndex)
+        local itemId = CraftingMaterialLevelDisplay.GetItemIdFromBagAndSlot(bagId, slotIndex)
         InvokeSetBagItemTooltip(control, bagId, slotIndex, ...)
         AddTooltipByType(control, tradeSkillType, itemType, itemId)
     end

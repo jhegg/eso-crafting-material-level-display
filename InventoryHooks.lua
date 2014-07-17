@@ -1,15 +1,3 @@
-local backpackListView = PLAYER_INVENTORY.inventories[1].listView
-local bankListView = PLAYER_INVENTORY.inventories[3].listView
-local guildBankListView = PLAYER_INVENTORY.inventories[4].listView
-local enchantingTableListView = ENCHANTING.inventory.list
-
-local inventoriesToItemLookupFunctions = {
-    [backpackListView] = {GetItemLink, "bagId", "slotIndex"},
-    [bankListView] = {GetItemLink, "bagId", "slotIndex"},
-    [guildBankListView] = {GetItemLink, "bagId", "slotIndex"},
-    [enchantingTableListView] = {GetItemLink, "bagId", "slotIndex"},
-}
-
 local function getLabelForInventoryRowControl(row)
     local label = CraftingMaterialLevelDisplay.currentInventoryRows[row:GetName()]
     if not label then
@@ -23,19 +11,13 @@ local function IsTheRowRectangular(rowControl)
     return rowControl:GetWidth() / rowControl:GetHeight() > 1.5
 end
 
-local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
-    local getItemLinkFunction = lookupFunctions[1]
-    local inventorySlot = rowControl.dataEntry.data
-    local bagId = inventorySlot[lookupFunctions[2]]
-    local inventorySlotIndex = lookupFunctions[3] and inventorySlot[lookupFunctions[3]] or nil
-    local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(getItemLinkFunction(bagId, inventorySlotIndex))
+local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
     local label = getLabelForInventoryRowControl(rowControl)
     label:SetText(itemId)
     label:SetFont("ZoFontGame")
     label:ClearAnchors()
     label:SetHidden(true)
 
-    local tradeSkillType, itemType = GetItemCraftingInfo(bagId, inventorySlotIndex)
     if tradeSkillType == CRAFTING_TYPE_ENCHANTING
             and itemType ~= ITEMTYPE_GLYPH_ARMOR
             and itemType ~= ITEMTYPE_GLYPH_JEWELRY
@@ -53,14 +35,29 @@ local function AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
     end
 end
 
-function CraftingMaterialLevelDisplay.HookInventory()
-    for inventoryList, lookupFunctions in pairs(inventoriesToItemLookupFunctions) do
+-- See PLAYER_INVENTORY["bagToInventoryType"] for the mappings from bag constants to inventory IDs
+local inventoryLists = {
+    ["backpackListView"] = PLAYER_INVENTORY.inventories[1].listView,
+    ["bankListView"] = PLAYER_INVENTORY.inventories[3].listView,
+    ["guildBankListView"] = PLAYER_INVENTORY.inventories[4].listView,
+    ["enchantingTableListView"] = ENCHANTING.inventory.list,
+}
+
+function CraftingMaterialLevelDisplay.HookInventoryLists()
+    for _,inventoryList in pairs(inventoryLists) do
         if inventoryList and inventoryList.dataTypes and inventoryList.dataTypes[1] then
             local existingCallbackFunction = inventoryList.dataTypes[1].setupCallback
             inventoryList.dataTypes[1].setupCallback = function(rowControl, slot)
                 existingCallbackFunction(rowControl, slot)
+
+                local inventorySlot = rowControl.dataEntry.data
+                local slotIndex = "slotIndex" and inventorySlot["slotIndex"] or nil
+                local bagId = inventorySlot["bagId"]
+                local itemId = CraftingMaterialLevelDisplay.GetItemIdFromBagAndSlot(bagId, slotIndex)
+                local tradeSkillType, itemType = GetItemCraftingInfo(bagId, slotIndex)
+
                 if CraftingMaterialLevelDisplay.savedVariables.enchantingInventoryList then
-                    AddEnchantingLevelToInventoryRow(rowControl, lookupFunctions)
+                    AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, itemType, itemId)
                 end
             end
         end

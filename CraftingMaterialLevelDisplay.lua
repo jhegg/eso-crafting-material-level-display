@@ -16,6 +16,11 @@ function CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
     return tonumber(itemId)
 end
 
+function CraftingMaterialLevelDisplay.GetItemIdFromBagAndSlot(bagId, slotIndex)
+    local itemLink = GetItemLink(bagId, slotIndex)
+    return CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
+end
+
 local function BuildAddonMenu()
     local LAM = LibStub:GetLibrary("LibAddonMenu-1.0")
     local panelId = LAM:CreateControlPanel(CraftingMaterialLevelDisplay.name.."ControlPanel", "Crafting Material Level Display")
@@ -85,7 +90,7 @@ local function onLoad(_, name)
     InitializeSavedVariables()
     BuildAddonMenu()
     CraftingMaterialLevelDisplay.HookTooltips()
-    CraftingMaterialLevelDisplay.HookInventory()
+    CraftingMaterialLevelDisplay.HookInventoryLists()
 end
 
 EVENT_MANAGER:RegisterForEvent(CraftingMaterialLevelDisplay.name, EVENT_ADD_ON_LOADED, onLoad)
