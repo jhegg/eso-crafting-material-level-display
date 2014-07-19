@@ -86,15 +86,16 @@ The added text for this screenshot is "**For extra flavor in purple recipes**".
 
 ### Enchanting - Potency Rune
 
-The added text for this screenshot is "**Level 40 - 50: Augment, Strong**".
+The added text for this screenshot is "**Level 15 - 20, Additive**". It also shows the level range in the inventory list.
 
-![Enchanting Potency Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-potency-rune-v1.0.7.jpg)
+![Enchanting Potency Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-potency-rune-v1.3.0.jpg)
 
 ### Enchanting - Essence Rune
 
-The added text for this screenshot is "**For both Armor and Weapon Glyphs**".
+The added text for this screenshot is "**Magicka - Armor, Weapon**" and "**+ Adds max Magicka**" and 
+"**- Deals magic damage and restores Magicka**".
 
-![Enchanting Essence Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-essence-rune-v0.5.jpg)
+![Enchanting Essence Rune Image](https://github.com/jhegg/eso-crafting-material-level-display/wiki/CraftingMaterialLevelDisplay-enchanting-essence-rune-v1.3.0.jpg)
 
 ### Alchemy
 
