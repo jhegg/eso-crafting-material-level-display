@@ -68,24 +68,6 @@ local inventoryLists = {
     ["enchantingTableListView"] = ENCHANTING.inventory.list,
 }
 
-local function GetTradeSkillTypeFromItemId(itemId)
-    -- in 1.3.0 it will be possible to get all info from itemLink,
-    -- but until then, look for the item in known materials
-    if not itemId then
-        return nil
-    elseif BlacksmithingMaterials[itemId] then
-        return CRAFTING_TYPE_BLACKSMITHING
-    elseif ClothingMaterials[itemId] then
-        return CRAFTING_TYPE_CLOTHIER
-    elseif EnchantingMaterials[itemId] then
-        return CRAFTING_TYPE_ENCHANTING
-    elseif WoodworkingMaterials[itemId] then
-        return CRAFTING_TYPE_WOODWORKING
-    else
-        return nil
-    end
-end
-
 local function HookNormalInventoryLists()
     for _,inventoryList in pairs(inventoryLists) do
         if inventoryList and inventoryList.dataTypes and inventoryList.dataTypes[1] then
@@ -108,7 +90,7 @@ local function HookLootWindowInventoryList()
         existingCallbackFunction(rowControl, slot)
         local itemLink = GetLootItemLink(slot.lootId)
         local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
-        local tradeSkillType = GetTradeSkillTypeFromItemId(itemId)
+        local tradeSkillType = GetItemLinkCraftingSkillType(itemLink)
         AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType, nil, itemId, -20)
     end
 end

@@ -45,22 +45,6 @@ local function AddTooltipLineForEnchantingMaterial(control, itemId)
     end
 end
 
-local function GetTradeSkillTypeFromItemId(itemId)
-    -- in 1.3.0 it will be possible to get all info from itemLink,
-    -- but until then, look for the item in known materials
-    if not itemId then
-        return nil
-    elseif AlchemyMaterials[itemId] then
-        return CRAFTING_TYPE_ALCHEMY
-    elseif EnchantingMaterials[itemId] then
-        return CRAFTING_TYPE_ENCHANTING
-    elseif ProvisioningMaterials[itemId] then
-        return CRAFTING_TYPE_PROVISIONING
-    else
-        return nil
-    end
-end
-
 local function AddTooltipByType(control, tradeSkillType, itemType, itemId)
     if tradeSkillType == CRAFTING_TYPE_PROVISIONING then
         if CraftingMaterialLevelDisplay.savedVariables.provisioning then
@@ -99,7 +83,7 @@ local function HookLootWindowTooltip()
     ItemTooltip.SetLootItem = function(control, lootId, ...)
         local itemLink = GetLootItemLink(lootId)
         local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
-        local tradeSkillType = GetTradeSkillTypeFromItemId(itemId)
+        local tradeSkillType = GetItemLinkCraftingSkillType(itemLink)
         InvokeSetLootItemTooltip(control, lootId, ...)
         AddTooltipByType(control, tradeSkillType, nil, itemId)
     end
