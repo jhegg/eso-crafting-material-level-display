@@ -57,6 +57,18 @@ local function AddCraftingMaterialLevelToInventoryRow(rowControl, tradeSkillType
                 DisplayTheLabel(rowControl, label, offset, "["..EnchantingMaterials[itemId].level.."]")
             end
         end
+    elseif tradeSkillType == CRAFTING_TYPE_PROVISIONING then
+        if CraftingMaterialLevelDisplay.savedVariables.provisioningLabelColors then
+            if ProvisioningMaterials[itemId] and ProvisioningMaterials[itemId].color ~= nil then
+                local color = ProvisioningMaterials[itemId].color
+                local nameControl = rowControl:GetNamedChild("Name")
+                if color == "purple" then
+                    nameControl:SetColor(GetInterfaceColor(INTERFACE_COLOR_TYPE_ITEM_QUALITY_COLORS,ITEM_QUALITY_ARTIFACT))
+                elseif color == "blue" then
+                    nameControl:SetColor(GetInterfaceColor(INTERFACE_COLOR_TYPE_ITEM_QUALITY_COLORS,ITEM_QUALITY_ARCANE))
+                end
+            end
+        end
     end
 end
 

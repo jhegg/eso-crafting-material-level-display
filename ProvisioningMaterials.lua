@@ -96,25 +96,25 @@ ProvisioningMaterials = {
     [26978] = {tooltip = "Secondary Ingredient, Level VR5, Increase Max Stamina"}, -- pinguis
     [45524] = {tooltip = "Secondary Ingredient, Level VR5, Increase Stamina Recovery"}, -- golden malt
 
-    [26954] = {tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- salt
-    [27043] = {tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- hallertau hops
-    [27049] = {tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- concord grapes
-    [27058] = {tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- red wheat
-    [27064] = {tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- onion
-    [28666] = {tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- snowberry
+    [26954] = {color = "blue", tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- salt
+    [27043] = {color = "blue", tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- hallertau hops
+    [27049] = {color = "blue", tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- concord grapes
+    [27058] = {color = "blue", tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- red wheat
+    [27064] = {color = "blue", tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- onion
+    [28666] = {color = "blue", tooltip = "For extra flavor in |c5B90F6blue|r and |cAA00FFpurple|r recipes"}, -- snowberry
 
-    [26802] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- tomato
-    [26962] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- pepper
-    [27035] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- hops
-    [27044] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- saaz hops
-    [27048] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- white grapes
-    [27051] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- jazbay grapes #1
-    [27052] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- juniper berry
-    [27053] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- canis root
-    [27057] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- barley
-    [27059] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- oats
-    [27063] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- potato
-    [27100] = {tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- garlic
+    [26802] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- tomato
+    [26962] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- pepper
+    [27035] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- hops
+    [27044] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- saaz hops
+    [27048] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- white grapes
+    [27051] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- jazbay grapes #1
+    [27052] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- juniper berry
+    [27053] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- canis root
+    [27057] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- barley
+    [27059] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- oats
+    [27063] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- potato
+    [27100] = {color = "purple", tooltip = "For extra flavor in |cAA00FFpurple|r recipes"}, -- garlic
 
     [28600] = {tooltip = "Unknown Ingredient :("}, -- carrots
 }

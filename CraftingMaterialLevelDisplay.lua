@@ -4,6 +4,7 @@ CraftingMaterialLevelDisplay = {
     defaultSavedVariables = {
         provisioning = true,
         provisioningFlavor = true,
+        provisioningLabelColors = true,
         enchanting = true,
         alchemy = true,
         showLevelsInInventoryLists = true,
@@ -54,6 +55,16 @@ local function BuildAddonMenu()
         function()
             CraftingMaterialLevelDisplay.savedVariables.provisioningFlavor =
                 not CraftingMaterialLevelDisplay.savedVariables.provisioningFlavor
+        end)
+
+    LAM:AddCheckbox(panelId,
+        CraftingMaterialLevelDisplay.name.."ProvisioningLabelCheckbox",
+        "Show Provisioning label colors",
+        nil,
+        function() return CraftingMaterialLevelDisplay.savedVariables.provisioningLabelColors end,
+        function()
+            CraftingMaterialLevelDisplay.savedVariables.provisioningLabelColors =
+            not CraftingMaterialLevelDisplay.savedVariables.provisioningLabelColors
         end)
 
     LAM:AddCheckbox(panelId,
