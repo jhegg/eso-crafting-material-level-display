@@ -95,12 +95,8 @@ end
 
 local function HookLootWindowTooltip()
     -- The idea for this was contributed by merlight at esoui.com; thanks!
-    --
-    -- hooking InformationTooltip.SetLootItem doesn't work (as of API 100007),
-    -- but luckily tinkering with its metatable does ;)
-    local InformationTooltip_index = getmetatable(InformationTooltip).__index
-    local InvokeSetLootItemTooltip = InformationTooltip_index.SetLootItem
-    InformationTooltip_index.SetLootItem = function(control, lootId, ...)
+    local InvokeSetLootItemTooltip = ItemTooltip.SetLootItem
+    ItemTooltip.SetLootItem = function(control, lootId, ...)
         local itemLink = GetLootItemLink(lootId)
         local itemId = CraftingMaterialLevelDisplay.GetItemIdFromLink(itemLink)
         local tradeSkillType = GetTradeSkillTypeFromItemId(itemId)
